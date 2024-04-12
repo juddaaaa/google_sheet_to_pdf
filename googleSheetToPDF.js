@@ -48,7 +48,7 @@ function googleSheetToPDF(sheetName) {
   template.fileName = pdfName
   template.pdfUrl = pdfUrl
 
-  const htmlBody = HtmlService.createHtmlOutput(template.evaluate())
+  const htmlBody = HtmlService.createHtmlOutput(template.evaluate()).getContent()
 
   // Send email to recipient with PDF file attached
   GmailApp.sendEmail(recipient, `${pdfName} successfully created`, "", {
